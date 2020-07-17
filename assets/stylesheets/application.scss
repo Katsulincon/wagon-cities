@@ -27,3 +27,7 @@ body {
   background-color: transparent;
   cursor: pointer;
 }
+
+.list-group-item .selected {
+  border: 6px red dashed;
+}
