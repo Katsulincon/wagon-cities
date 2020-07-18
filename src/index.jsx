@@ -2,7 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+//import { createStore, combineReducers } from 'redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 
 // internal modules
 import App from './components/app';
@@ -12,10 +14,11 @@ import citiesReducer from './reducers/cities_reducer';
 import activeCityReducer from './reducers/active_city_reducer';
 
 // State and reducers
-const reducers = combineReducers({
-  cities: citiesReducer,
-  activeCity: activeCityReducer
-});
+//This went to index.js in reducers folder.
+// const reducers = combineReducers({
+//   cities: citiesReducer,
+//   activeCity: activeCityReducer
+// });
 
 // render an instance of the component in the DOM
 ReactDOM.render(

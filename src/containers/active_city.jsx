@@ -1,27 +1,45 @@
 import React, { Component } from 'react';
 
-class ActiveCity extends Component {
+//Needed to add this.
+import { connect } from 'react-redux';
 
-  render() {
-   //  const url = `https://kitt.lewagon.com/placeholder/cities/${this.props.activeCity.slug}`;
+// class ActiveCity extends Component {
 
-   // if (!this.props.activeCity) {
-   //    return (
-   //      <div className="active-city">
-   //        <p>Select a city...</p>
-   //      </div>
-   //    );
-   //  }
+//   render() {
+//     return (
+//       <div className="active-city">
+//         <h3>{this.props.activeCity.name}</h3>
+//         <p>{this.props.activeCity.address}</p>
+//         <img src={url} width="100%" />
+//       </div>
+//     );
+//   }
+// }
 
-
+const ActiveCity = (props) => {
+  if (!props.activeCity) {
     return (
       <div className="active-city">
-        <h3>{this.props.activeCity.name}</h3>
-        <p>{this.props.activeCity.address}</p>
-        <img src={url} width="100%" />
+        <p>Select a city...</p>
       </div>
     );
   }
+
+  const url = `https://kitt.lewagon.com/placeholder/cities/${props.activeCity.slug}`;
+
+  return (
+    <div className="active-city">
+      <h3>{props.activeCity.name}</h3>
+      <p>{props.activeCity.address}</p>
+      <img src={url} width="100%" />
+    </div>
+  );
+};
+
+function mapStateToProps(state) {
+  return {
+    activeCity: state.activeCity
+  };
 }
 
-export default ActiveCity;
+export default connect(mapStateToProps)(ActiveCity);
